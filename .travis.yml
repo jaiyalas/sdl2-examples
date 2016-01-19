@@ -32,7 +32,11 @@ before_install:
  - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER
  - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
  - wget http://libsdl.org/release/SDL2-2.0.3.tar.gz -O - | tar xz
- - cd SDL2-2.0.3 && ./configure && make -j && sudo make install && cd ..
+ - cd SDL2-2.0.3
+ - ./configure
+ - make -j
+ - sudo make install
+ - cd ..
 
 install:
  - cabal --version
