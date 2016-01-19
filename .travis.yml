@@ -31,7 +31,7 @@ before_install:
  - travis_retry sudo apt-get update
  - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER
  - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
- - travis_retry sudo apt-get install libsdl2-2.0
+ - travis_retry sudo apt-get install libsdl2-dev
 
 install:
  - cabal --version
