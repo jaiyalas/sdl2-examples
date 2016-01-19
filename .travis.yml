@@ -1,0 +1,50 @@
+# This file has been generated -- see https://github.com/hvr/multi-ghc-travis
+language: c
+
+branches:
+  only:
+    - stable
+
+matrix:
+  include:
+    - env: CABALVER=1.22 GHCVER=head
+      compiler: ": #GHC head"
+      addons: {apt: {packages: [cabal-install-1.22,ghc-head], sources: [hvr-ghc]}}
+    - env: CABALVER=1.22 GHCVER=7.10.2
+      compiler: ": #GHC 7.10.2"
+      addons: {apt: {packages: [cabal-install-1.22,ghc-7.10.2], sources: [hvr-ghc]}}
+    - env: CABALVER=1.18 GHCVER=7.8.4
+      compiler: ": #GHC 7.8.4"
+      addons: {apt: {packages: [cabal-install-1.18,ghc-7.8.4], sources: [hvr-ghc]}}
+    - env: CABALVER=1.16 GHCVER=7.6.3
+      compiler: ": #GHC 7.6.3"
+      addons: {apt: {packages: [cabal-install-1.16,ghc-7.6.3], sources: [hvr-ghc]}}
+
+  allow_failures:
+   - env: CABALVER=1.22 GHCVER=head
+   - env: CABALVER=1.18 GHCVER=7.8.4
+   - env: CABALVER=1.16 GHCVER=7.6.3
+
+before_install:
+
+ - travis_retry sudo add-apt-repository -y ppa:hvr/ghc
+ - travis_retry sudo apt-get update
+ - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER
+ - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+
+install:
+ - cabal --version
+ - echo "$(ghc --version) [$(ghc --print-project-git-commit-id 2> /dev/null || echo '?')]"
+ - travis_retry cabal update
+ - cabal install --only-dependencies --enable-tests --enable-benchmarks
+
+script:
+ - cabal configure
+ - cabal build
+ # - cabal test
+ # - cabal sdist
+ # - SRC_TGZ=$(cabal info . | awk '{print $2;exit}').tar.gz &&
+ #  (cd dist && cabal install --force-reinstalls "$SRC_TGZ")
+
+notifications:
+  slack: jaiyalas:rTERqdvyJZbXGRYxy3SLKAtq
