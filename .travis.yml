@@ -3,7 +3,7 @@ language: c
 
 branches:
   only:
-    - stable
+    - master
 
 matrix:
   include:
