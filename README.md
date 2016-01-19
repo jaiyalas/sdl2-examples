@@ -4,10 +4,22 @@
 [![MIT](http://b.repl.ca/v1/license-MIT-blue.png)](https://en.wikipedia.org/wiki/MIT_License)
 [![Haskell](http://b.repl.ca/v1/language-haskell-orange.png)](http://haskell.org)
 
-Implementing SDL2 tutorial lessons in [lazyfoo.net](http://lazyfoo.net/tutorials/SDL/) using SDL2 haskell binding. (Some of them have been implemented in [haskell-game/sdl2examples/lazyfoo](https://github.com/haskell-game/sdl2/tree/master/examples/lazyfoo).) The plan is to implement 34 selected lessons out of the 55 lessons from the original lazyfoo's tutorial.
+Implementing SDL2 tutorial lessons on [lazyfoo.net](http://lazyfoo.net/tutorials/SDL/) using [SDL2 haskell binding](https://hackage.haskell.org/package/sdl2). (Some of them have been implemented on [haskell-game/sdl2examples/lazyfoo](https://github.com/haskell-game/sdl2/tree/master/examples/lazyfoo).) The plan is to implement 34 selected lessons out of the 55 lessons from the original lazyfoo's tutorial.
 
-以 [sdl2 的 haskell binding](https://hackage.haskell.org/package/sdl2) 實作[lazyfoo.net](http://lazyfoo.net/tutorials/SDL/) 中之課程題目。  
-(其中部分已實作在 sdl2 haskell binding 的 repository:[haskell-game/sdl2examples/lazyfoo](https://github.com/haskell-game/sdl2/tree/master/examples/lazyfoo) 中。) 計畫會從原本的 55 個課程選擇 34 個來實作。
+以 [sdl2 的 haskell binding](https://hackage.haskell.org/package/sdl2) 實作[lazyfoo.net](http://lazyfoo.net/tutorials/SDL/) 中之課程題目。  (其中部分已實作在 sdl2 haskell binding 的 repository - [haskell-game/sdl2examples/lazyfoo](https://github.com/haskell-game/sdl2/tree/master/examples/lazyfoo) 中。) 計畫是實作其中 34 個選定的課程來實作。
+
+## Required Packages (必須套件)
+
+System:
+
+* sdl2 - 2.0.3
+* ghc - 7.10.2
+
+Hackages:
+
+* sdl2 - 2.1.1
+* linear - 1.19.1.3
+
 
 ## How to Build and Execute (編譯與執行)
 
